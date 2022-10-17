@@ -68,11 +68,11 @@ npm install river-compass -g
 ```s
 compass-lint
 ```
-![](./bin.png)
+<image src="./bin.png">
 
 ### 文件变动如下：
 
-![](./file.png)
+<image src="./file.png">
 
 
 增加了 .vscode/settions.json :
