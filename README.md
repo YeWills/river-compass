@@ -2,8 +2,8 @@
 # river-compass
 
 river（河流）compass（指南针），航行指南针，引申为规则，本包是一个lint规则集合。<br>
-集成了prettier，eslint，stylelint配置规则，用于所有项目使用统一的lint规则，支持js、typeScript。<br>
->另外本包提供了cli命令，可一键将以上lint配置集成到新项目中，或者将老项目的lint规则更换。
+集成了prettier、eslint、stylelint配置规则和vscode/setting.json，主要用于所有项目使用统一的lint规则，支持js、typeScript。<br>
+>另外本包提供了cli命令，可一键将以上lint配置集成到新项目中，或者将老项目的lint配置更换。
 
 # Use
 
