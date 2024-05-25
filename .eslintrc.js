@@ -10,25 +10,6 @@ const commonrules = {
   'import/no-default-export': 0,
   'import/prefer-default-export': 0,
   'import/extensions': 0, // 待研究 import { buttonKeys } from '@/route/packagecard/router';
-  'react/display-name': 0,
-  'react/jsx-props-no-spreading': 0,
-  'react/state-in-constructor': 0,
-  'react/static-property-placement': 0,
-  // Too restrictive: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/destructuring-assignment.md
-  'react/destructuring-assignment': 'off',
-  'react/jsx-filename-extension': 'off',
-  'react/no-array-index-key': 'warn',
-  'react-hooks/rules-of-hooks': 0, // Checks rules of Hooks
-  'react-hooks/exhaustive-deps': 0, // Checks deps of Hooks
-  'react/require-default-props': 0,
-  'react/jsx-fragments': 0,
-  'react/jsx-wrap-multilines': 0,
-  'react/prop-types': 0,
-  'react/forbid-prop-types': 0,
-  'react/sort-comp': 0,
-  'react/react-in-jsx-scope': 0,
-  'react/jsx-one-expression-per-line': 0,
-  'react/no-unused-class-component-methods': 2,
   'generator-star-spacing': 0,
   'function-paren-newline': 0,
   'jsx-a11y/no-noninteractive-element-interactions': 0,
@@ -56,11 +37,13 @@ const commonrules = {
 module.exports = {
   // extends: [require.resolve("./dist/eslint.js")],
   rules: {
+    // prettier 推荐配置
     'prettier/prettier': [
       'error',
       {
         endOfLine: 'auto', // 不让prettier检测文件每行结束的格式
         singleQuote: true, // 单引号 双引号
+        // trailingCooma: 'none',
       },
     ],
   },
@@ -105,9 +88,7 @@ module.exports = {
           jsx: true,
         },
         babelOptions: {
-          presets: ['@babel/preset-env', '@babel/preset-react'].concat([
-            '@babel/preset-typescript',
-          ]),
+          presets: ['@babel/preset-env'].concat(['@babel/preset-typescript']),
           plugins: [
             ['@babel/plugin-proposal-decorators', { legacy: true }],
             ['@babel/plugin-proposal-class-properties', { loose: true }],
@@ -122,9 +103,7 @@ module.exports = {
       parser: '@babel/eslint-parser',
       plugins: ['eslint-comments', 'prettier'],
       // plugins: ["@typescript-eslint"],
-      extends: ['eslint-config-airbnb-base', 'prettier'].concat([
-        'plugin:react/recommended',
-      ]),
+      extends: ['eslint-config-airbnb-base', 'prettier'],
       rules: { ...commonrules },
       settings: {
         // support import modules from TypeScript files in JavaScript files
@@ -133,9 +112,10 @@ module.exports = {
             extensions: ['.js', '.jsx'],
           },
         },
-        'import/parsers': {
-          '@typescript-eslint/parser': ['.ts', '.tsx', '.d.ts'],
-        },
+        // 'import/parsers': {
+        //   // todo
+        //   '@typescript-eslint/parser': ['.ts', '.tsx', '.d.ts'],
+        // },
         'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.tsx', '.d.ts'],
         'import/external-module-folders': [
           'node_modules',
@@ -148,7 +128,7 @@ module.exports = {
           jsx: true,
         },
         babelOptions: {
-          presets: ['@babel/preset-env', '@babel/preset-react'].concat([]),
+          presets: ['@babel/preset-env'].concat([]),
           plugins: [
             ['@babel/plugin-proposal-decorators', { legacy: true }],
             ['@babel/plugin-proposal-class-properties', { loose: true }],

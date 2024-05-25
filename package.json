@@ -28,7 +28,7 @@
     "build": "babel src --out-dir dist  --extensions \".ts,.js\"  && node ./tool.js",
     "deps": "yarn upgrade-interactive --latest",
     "lib": "cross-env TIMING=1 eslint lib",
-    "lint": "npm run build && cd tsExample && npm run lint",
+    "lint": "eslint --fix src utils",
     "prettier": "prettier -c --write \"**/*\"",
     "testTS": "npm run build && cd tsExample && npm run lint",
     "testJS": "npm run build && cd jsExample && npm run lint",

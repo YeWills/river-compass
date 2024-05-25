@@ -23,10 +23,11 @@ const parserOptions = {
   project: './tsconfig.json',
 };
 
-const isJsMoreTs = async (path = 'src') => {
+const isJsMoreTs = async (_path = 'src') => {
+  // eslint-disable-next-line global-require
   const fg = require('fast-glob');
-  const jsFiles = await fg(`${path}/src/**/*.{js,jsx}`, { deep: 3 });
-  const tsFiles = await fg(`${path}/src/**/*.{ts,tsx}`, { deep: 3 });
+  const jsFiles = await fg(`${_path}/src/**/*.{js,jsx}`, { deep: 3 });
+  const tsFiles = await fg(`${_path}/src/**/*.{ts,tsx}`, { deep: 3 });
   return jsFiles.length > tsFiles.length;
 };
 

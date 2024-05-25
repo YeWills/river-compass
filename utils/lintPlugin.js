@@ -1,5 +1,4 @@
 const fs = require('fs');
-const path = require('path');
 const { execSync } = require('child_process');
 const inquirer = require('inquirer');
 const helper = require('./helper');
@@ -46,9 +45,13 @@ const lintPlugin = async () => {
         default: false,
       });
       if (next) {
-        execSync('npm run husky', { cwd: process.cwd() }, (error, stdout, stderr) => {
-          console.log(error, stdout, stderr);
-        });
+        execSync(
+          'npm run husky',
+          { cwd: process.cwd() },
+          (error, stdout, stderr) => {
+            console.log(error, stdout, stderr);
+          }
+        );
         console.log('husky 初始化完成，线程将正常终止，请重启项目！');
       }
       helper.goExit();

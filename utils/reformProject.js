@@ -53,7 +53,8 @@ const formatPackageJson = (packagejsonPath, srcName, LintVersion) => {
   };
 
   const moreScripts = {
-    husky: 'npx husky install && npx husky add .husky/pre-commit "npm run lint-staged"',
+    husky:
+      'npx husky install && npx husky add .husky/pre-commit "npm run lint-staged"',
     'lint:js': `eslint --ext .js,.jsx,.ts,.tsx --format=pretty "./${srcName}" `,
     'lint:fix': 'npm run lint:fix:js && npm run lint:style',
     'lint-staged': 'lint-staged',
@@ -99,19 +100,19 @@ const formatPackageJson = (packagejsonPath, srcName, LintVersion) => {
 const handleFiles = () => {
   fs.copyFileSync(
     path.resolve(__dirname, '.eslintrc.ejs'),
-    helper.getProcessCwdPath('.eslintrc.js'),
+    helper.getProcessCwdPath('.eslintrc.js')
   );
   fs.copyFileSync(
     path.resolve(__dirname, '.prettierrc.ejs'),
-    helper.getProcessCwdPath('.prettierrc.js'),
+    helper.getProcessCwdPath('.prettierrc.js')
   );
   fs.copyFileSync(
     path.resolve(__dirname, '.stylelintrc.ejs'),
-    helper.getProcessCwdPath('.stylelintrc.js'),
+    helper.getProcessCwdPath('.stylelintrc.js')
   );
   fs.copyFileSync(
     path.resolve(__dirname, '.stylelintignore.ejs'),
-    helper.getProcessCwdPath('.stylelintignore'),
+    helper.getProcessCwdPath('.stylelintignore')
   );
 
   const eslintrcPath = helper.getProcessCwdPath('./.eslintrc');
@@ -122,7 +123,9 @@ const handleFiles = () => {
 };
 
 const handleVscodeFiles = () => {
-  const vscodeSettingsPath = helper.getProcessCwdPath('./.vscode/settings.json');
+  const vscodeSettingsPath = helper.getProcessCwdPath(
+    './.vscode/settings.json'
+  );
 
   let settingJson = {
     'editor.codeActionsOnSave': {
@@ -183,7 +186,9 @@ const initPackageJson = async ({
         type: 'input',
       },
     ]);
-    packagePath = helper.getProcessCwdPath(info.packagePath || './package.json');
+    packagePath = helper.getProcessCwdPath(
+      info.packagePath || './package.json'
+    );
     srcPathName = info.srcPathName || srcPathName;
     LintVersion = info.LintVersion || LintVersion;
   }

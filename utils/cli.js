@@ -24,8 +24,8 @@ async function lintCli() {
           cow: yasuna10,
           W: 100,
           n: true,
-        }),
-      ),
+        })
+      )
     );
     process.exit(0);
   }
@@ -37,9 +37,9 @@ async function lintCli() {
           `你现在运行的 node 版本是 ${chalk.red(currentNodeVersion)} 。\n` +
             `我们要求 node 版本在 ${chalk.magenta('14')} 以上。\n` +
             `请升个级吧！`,
-          { cow: yasuna16, W: 100, n: true },
-        ),
-      ),
+          { cow: yasuna16, W: 100, n: true }
+        )
+      )
     );
     process.exit(1);
   }
