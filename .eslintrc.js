@@ -1,8 +1,6 @@
 const tsEslintConfig = require('./dist/tsEslintConfig.js').default;
 
 const commonrules = {
-  // prettier 推荐配置
-  'prettier/prettier': 'error',
   'arrow-body-style': 'off',
   'prefer-arrow-callback': 'off',
   'import/no-unresolved': 0, // 提出一个解决方案 import/resolver
@@ -55,6 +53,7 @@ module.exports = {
     jest: true,
     jasmine: true,
   },
+  // 因为项目同时有ts和js文件，js是为了直接在node控制台执行方便，所以继续沿用js；由于混用两种文件，于是为两种文件后缀使用两套规则
   overrides: [
     {
       files: ['*.ts'],
@@ -84,9 +83,6 @@ module.exports = {
         polyfills: ['fetch', 'Promise', 'URL', 'object-assign'],
       },
       parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
         babelOptions: {
           presets: ['@babel/preset-env'].concat(['@babel/preset-typescript']),
           plugins: [
@@ -124,9 +120,6 @@ module.exports = {
         polyfills: ['fetch', 'Promise', 'URL', 'object-assign'],
       },
       parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
         babelOptions: {
           presets: ['@babel/preset-env'].concat([]),
           plugins: [
@@ -135,7 +128,6 @@ module.exports = {
           ],
         },
         requireConfigFile: false,
-        project: './tsconfig.json',
       },
     },
   ],

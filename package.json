@@ -24,11 +24,10 @@
     "utils"
   ],
   "scripts": {
-    "build-tsc": "tsc --build tsconfig.json && node ./tool.js",
     "build": "babel src --out-dir dist  --extensions \".ts,.js\"  && node ./tool.js",
-    "deps": "yarn upgrade-interactive --latest",
-    "lib": "cross-env TIMING=1 eslint lib",
     "lint": "eslint --fix src utils",
+    "tsc-test-build": "tsc --build tsconfig.json && node ./tool.js",
+    "deps": "yarn upgrade-interactive --latest",
     "prettier": "prettier -c --write \"**/*\"",
     "testTS": "npm run build && cd tsExample && npm run lint",
     "testJS": "npm run build && cd jsExample && npm run lint",
