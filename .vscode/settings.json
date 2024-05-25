@@ -1,0 +1,17 @@
+{
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": false
+    },
+    "stylelint.validate": [
+      "css",
+      "less",
+      "scss"
+    ],
+    "search.exclude": {
+          "**/node_modules": true,
+          "**/bower_components": true,
+          "**/*.code-search": true
+      },
+    "search.useIgnoreFiles": true,
+    
+  }
